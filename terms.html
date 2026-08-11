@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prymora Junebriar · Terms of Service</title>
+    <!-- premium typography: inter & georgia serif for editorial feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        /* ----- reset & base (exactly as original) ----- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f9f6f0;
+            color: #1f1e1b;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 0 2rem;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        hr { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 3rem 0; }
+
+        /* ----- brand identity & color palette (unchanged) ----- */
+        :root {
+            --background: #f9f6f0;
+            --surface: #ffffff;
+            --text-primary: #1f1e1b;
+            --text-secondary: #4f4b44;
+            --accent-gold: #b89a6b;
+            --accent-umber: #7f5e3c;
+            --accent-sage: #9aa98b;
+            --border-light: #ece6db;
+            --shadow-soft: 0 12px 30px rgba(0,0,0,0.03), 0 6px 12px rgba(0,0,0,0.02);
+            --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.08);
+            --radius-card: 2rem 0.75rem 2rem 0.75rem;
+            --radius-button: 40px;
+            --font-serif: 'Georgia', serif;
+        }
+
+        /* ----- layout system ----- */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* ----- navigation: floating divider (exact) ----- */
+        .nav-brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 1rem;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        .logo span {
+            color: var(--accent-gold);
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            list-style: none;
+        }
+        .nav-links a:hover { color: var(--accent-umber); }
+
+        /* ----- footer: minimal with brand promise (exact) ----- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+        .footer-grid h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+        }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.6rem; color: var(--text-secondary); }
+        .footer-grid a:hover { color: var(--accent-umber); }
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ----- terms page specific styles (aligned with about page) ----- */
+        .page-header {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-content h2 {
+            font-family: var(--font-serif);
+            margin-top: 2.5rem;
+            font-weight: 400;
+        }
+        .page-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .page-content ul, .page-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .page-content li { margin-bottom: 0.5rem; }
+        
+        .terms-highlight {
+            background: var(--surface);
+            padding: 2rem 2.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            margin: 2.5rem 0;
+            border-left: 6px solid var(--accent-gold);
+        }
+        .terms-highlight h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            color: var(--accent-umber);
+        }
+        .terms-highlight p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        /* subtle variation: sage accent for secondary boxes */
+        .terms-highlight.sage {
+            border-left-color: var(--accent-sage);
+        }
+
+        .small-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--surface);
+            padding: 1.2rem 1.8rem;
+            border-radius: 1rem 0.25rem 1rem 0.25rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* ---- responsive (exact) ---- */
+        @media (max-width: 900px) {
+            body { padding: 0 1rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { gap: 1.2rem; font-size: 0.7rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .page-header { font-size: 2.2rem; }
+            .terms-highlight { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- navigation (exact replica) -->
+    <nav class="nav-brand">
+        <div class="logo">Prymora <span>Junebriar</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms Of Privacy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookies Policy</a></li> 
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="categories.html">Categories</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== TERMS OF SERVICE PAGE ===== -->
+    <h1 class="page-header">Terms of Service</h1>
+    
+    <div class="page-content">
+        <p><strong>Effective date:</strong> 1 June 2026 · <strong>Last updated:</strong> 10 August 2026</p>
+        <p>Welcome to Prymora Junebriar. By accessing or using our website, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+
+        <div class="terms-highlight">
+            <h3>1. Acceptance of terms</h3>
+            <p>By using this site, you confirm that you have read, understood, and agree to these Terms of Service. If you do not agree, please refrain from using our website.</p>
+        </div>
+
+        <h2>2. Use of content</h2>
+        <p>All articles, images, illustrations, and other materials published on Prymora Junebriar are protected by copyright and intellectual property laws. You may:</p>
+        <ul>
+            <li>Read, share, and cite our content for non‑commercial, personal, or educational purposes, provided that you give proper attribution to Prymora Junebriar.</li>
+            <li>Link to our articles freely, as long as the link is not misleading or used in a way that suggests endorsement.</li>
+        </ul>
+        <p>You may <strong>not</strong> republish, reproduce, or distribute our content for commercial purposes without explicit written permission from the editorial team.</p>
+
+        <h2>3. User contributions</h2>
+        <p>We welcome comments, questions, and thoughtful engagement. When you contribute to our site (e.g., via comments or submissions), you grant us a non‑exclusive, royalty‑free, perpetual license to use, modify, and display your contribution in connection with Prymora Junebriar. You retain ownership of your original work.</p>
+        <p>We reserve the right to remove any content that is defamatory, abusive, or otherwise inappropriate.</p>
+
+        <div class="terms-highlight sage">
+            <h3>4. Accuracy and liability</h3>
+            <p>We strive for accuracy and depth in all our content. However, gardening, ecology, and horticulture are complex fields; information may change or contain errors. Prymora Junebriar provides content for informational and educational purposes only. It is not a substitute for professional advice. We assume no liability for any actions taken based on our content.</p>
+        </div>
+
+        <h2>5. Third-party links</h2>
+        <p>Our site may contain links to external websites or resources. We are not responsible for the content, accuracy, or practices of third‑party sites. Inclusion of a link does not imply endorsement.</p>
+
+        <h2>6. Privacy and data</h2>
+        <p>Your privacy matters to us. Please review our <a href="privacy.html" style="color: var(--accent-umber); text-decoration: underline;">Privacy Policy</a> and <a href="cookies.html" style="color: var(--accent-umber); text-decoration: underline;">Cookies Policy</a> to understand how we handle data.</p>
+
+        <h2>7. Modifications to terms</h2>
+        <p>We reserve the right to update these Terms of Service at any time. Changes will be posted on this page with an updated effective date. Continued use of the site constitutes acceptance of the revised terms.</p>
+
+        <div class="small-note">
+            <p><strong>Governing law:</strong> These terms are governed by the laws of the United Kingdom, without regard to its conflict of law provisions.</p>
+        </div>
+
+        <h2>8. Contact</h2>
+        <p>If you have any questions or concerns about these Terms of Service, please <a href="contact.html" style="color: var(--accent-umber); text-decoration: underline;">contact us</a>. We aim to respond within 3‑5 business days.</p>
+
+        <div class="terms-highlight" style="border-left-color: var(--accent-umber); margin-top: 3rem;">
+            <h3>In summary</h3>
+            <p>Prymora Junebriar is a space for thoughtful, respectful, and knowledge‑driven conversation about gardening and ecology. We ask that you engage with our content responsibly and with the same integrity we bring to our work.</p>
+        </div>
+
+        <p style="margin-top: 2.5rem; text-align: right; color: var(--text-secondary); font-style: italic;">— Cultivate the uncommon, with love.</p>
+    </div>
+
+    <!-- ===== FOOTER (exact replica) ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div><h4>Prymora Junebriar</h4><p style="color: var(--text-secondary);">A premium journal for the discerning gardener. Cultivating knowledge since 2023.</p></div>
+            <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="categories.html">Categories</a></li><li><a href="#">Archive</a></li><li><a href="#">Resources</a></li></ul></div>
+            <div><h4>Info</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Authors</a></li><li><a href="#">FAQ</a></li></ul></div>
+            <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="cookies.html">Cookie Policy</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Sitemap</a></li></ul></div>
+        </div>
+        <div class="footer-copy">© 2026 Prymora Junebriar · outlook. All rights reserved. Handcrafted with intention.</div>
+    </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prymora Junebriar · Categories</title>
+    <!-- premium typography: inter & georgia serif for editorial feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        /* ----- reset & base (exactly as original) ----- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f9f6f0;
+            color: #1f1e1b;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 0 2rem;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        hr { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 3rem 0; }
+
+        /* ----- brand identity & color palette (unchanged) ----- */
+        :root {
+            --background: #f9f6f0;
+            --surface: #ffffff;
+            --text-primary: #1f1e1b;
+            --text-secondary: #4f4b44;
+            --accent-gold: #b89a6b;
+            --accent-umber: #7f5e3c;
+            --accent-sage: #9aa98b;
+            --border-light: #ece6db;
+            --shadow-soft: 0 12px 30px rgba(0,0,0,0.03), 0 6px 12px rgba(0,0,0,0.02);
+            --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.08);
+            --radius-card: 2rem 0.75rem 2rem 0.75rem;
+            --radius-button: 40px;
+            --font-serif: 'Georgia', serif;
+        }
+
+        /* ----- layout system ----- */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* ----- navigation: floating divider (exact) ----- */
+        .nav-brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 1rem;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        .logo span {
+            color: var(--accent-gold);
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            list-style: none;
+        }
+        .nav-links a:hover { color: var(--accent-umber); }
+
+        /* ----- footer: minimal with brand promise (exact) ----- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+        .footer-grid h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+        }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.6rem; color: var(--text-secondary); }
+        .footer-grid a:hover { color: var(--accent-umber); }
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ----- categories page specific styles (aligned with about / terms) ----- */
+        .page-header {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .page-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* category grid — editorial card style */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        .category-card {
+            background: var(--surface);
+            padding: 1.8rem 1.5rem 1.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border-left: 6px solid var(--accent-gold);
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 48px -12px rgba(0,0,0,0.12);
+        }
+        .category-card.sage { border-left-color: var(--accent-sage); }
+        .category-card.umber { border-left-color: var(--accent-umber); }
+        .category-card h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .category-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+        .category-tag {
+            display: inline-block;
+            background: var(--border-light);
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .category-card a {
+            font-weight: 500;
+            color: var(--accent-umber);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .category-card a:hover { border-bottom-color: var(--accent-umber); }
+
+        /* intro highlight */
+        .intro-note {
+            background: var(--surface);
+            padding: 1.8rem 2.2rem;
+            border-radius: 1.5rem 0.5rem 1.5rem 0.5rem;
+            box-shadow: var(--shadow-soft);
+            margin: 2rem 0 1.5rem;
+            border-left: 6px solid var(--accent-sage);
+        }
+        .intro-note p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+        .intro-note strong {
+            color: var(--accent-umber);
+            font-weight: 600;
+        }
+
+        /* small note */
+        .small-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--surface);
+            padding: 1.2rem 1.8rem;
+            border-radius: 1rem 0.25rem 1rem 0.25rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        @media (max-width: 900px) {
+            body { padding: 0 1rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { gap: 1.2rem; font-size: 0.7rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .page-header { font-size: 2.2rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            .intro-note { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- navigation (exact replica) -->
+    <nav class="nav-brand">
+        <div class="logo">Prymora <span>Junebriar</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms Of Privacy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookies Policy</a></li> 
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="categories.html">Categories</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== CATEGORIES PAGE ===== -->
+    <h1 class="page-header">Categories</h1>
+    
+    <div class="page-content">
+        <div class="intro-note">
+            <p><strong>Explore our growing library</strong> — each category is a doorway to a deeper understanding of gardens, ecology, and the living world. Whether you are a seasoned grower or a curious beginner, you will find stories, guides, and reflections rooted in observation and care.</p>
+        </div>
+
+        <!-- category grid -->
+        <div class="category-grid">
+            <!-- card 1 -->
+            <div class="category-card">
+                <h3>🌱  Soil &amp; Compost</h3>
+                <p>The living foundation. From no‑dig to biodynamics, we explore how to build fertile ground for generations.</p>
+                <span class="category-tag">12 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 2 -->
+            <div class="category-card sage">
+                <h3>🌿  Perennial Gardens</h3>
+                <p>Designs that endure. Deep roots, layered planting, and the quiet beauty of plants that return year after year.</p>
+                <span class="category-tag">9 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 3 -->
+            <div class="category-card umber">
+                <h3>🌸  Seasonal Wisdom</h3>
+                <p>Rhythms of the year. What to sow, prune, and harvest — with a touch of folklore and phenology.</p>
+                <span class="category-tag">15 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 4 -->
+            <div class="category-card">
+                <h3>🐝  Pollinators &amp; Biodiversity</h3>
+                <p>Inviting bees, butterflies, and birds into the garden. Practical steps to nurture a living landscape.</p>
+                <span class="category-tag">8 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 5 -->
+            <div class="category-card sage">
+                <h3>🍅  Kitchen Gardens</h3>
+                <p>From seed to table. Vegetables, herbs, and fruits grown with flavour and resilience in mind.</p>
+                <span class="category-tag">14 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 6 -->
+            <div class="category-card umber">
+                <h3>🌳  Trees &amp; Woodland</h3>
+                <p>The silent architects. Care, selection, and the magic of trees in gardens and rewilding projects.</p>
+                <span class="category-tag">6 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 7 -->
+            <div class="category-card">
+                <h3>🧑‍🌾  Grower’s Almanac</h3>
+                <p>Monthly tasks, weather lore, and practical notes for the dedicated gardener. Timeless and timely.</p>
+                <span class="category-tag">11 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 8 -->
+            <div class="category-card sage">
+                <h3>📖  Garden Literature</h3>
+                <p>Essays, poetry, and reviews. Cultivating the mind as we cultivate the soil.</p>
+                <span class="category-tag">5 articles</span> · <a href="#">read more</a>
+            </div>
+            <!-- card 9 -->
+            <div class="category-card umber">
+                <h3>🌾  Meadows &amp; Grasslands</h3>
+                <p>Wildflower meadows, grass management, and the beauty of open spaces in harmony with nature.</p>
+                <span class="category-tag">7 articles</span> · <a href="#">read more</a>
+            </div>
+        </div>
+
+        <div class="small-note">
+            <p><strong>Looking for something specific?</strong> We are always adding new categories and refining our coverage. If you have a suggestion, please <a href="contact.html" style="color: var(--accent-umber); text-decoration: underline;">let us know</a> — we value the curiosity of our readers.</p>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--border-light); text-align: center; color: var(--text-secondary); font-style: italic;">
+            “Tell me what you pay attention to, and I will tell you who you are.” — José Ortega y Gasset
+        </div>
+    </div>
+
+    <!-- ===== FOOTER (exact replica) ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div><h4>Prymora Junebriar</h4><p style="color: var(--text-secondary);">A premium journal for the discerning gardener. Cultivating knowledge since 2023.</p></div>
+            <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="categories.html">Categories</a></li><li><a href="#">Archive</a></li><li><a href="#">Resources</a></li></ul></div>
+            <div><h4>Info</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Authors</a></li><li><a href="#">FAQ</a></li></ul></div>
+            <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="cookies.html">Cookie Policy</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Sitemap</a></li></ul></div>
+        </div>
+        <div class="footer-copy">© 2026 Prymora Junebriar · outlook. All rights reserved. Handcrafted with intention.</div>
+    </footer>
+
+</div>
+</body>
+</html>

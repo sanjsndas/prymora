@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prymora Junebriar · About</title>
+    <!-- premium typography: inter & georgia serif for editorial feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        /* ----- reset & base ----- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f9f6f0;
+            color: #1f1e1b;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 0 2rem;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        hr { border: 0; border-top: 1px solid rgba(0,0,0,0.05); margin: 3rem 0; }
+
+        /* ----- brand identity & color palette ----- */
+        :root {
+            --background: #f9f6f0;
+            --surface: #ffffff;
+            --text-primary: #1f1e1b;
+            --text-secondary: #4f4b44;
+            --accent-gold: #b89a6b;
+            --accent-umber: #7f5e3c;
+            --accent-sage: #9aa98b;
+            --border-light: #ece6db;
+            --shadow-soft: 0 12px 30px rgba(0,0,0,0.03), 0 6px 12px rgba(0,0,0,0.02);
+            --shadow-card: 0 20px 40px -12px rgba(0,0,0,0.08);
+            --radius-card: 2rem 0.75rem 2rem 0.75rem;
+            --radius-button: 40px;
+            --font-serif: 'Georgia', serif;
+        }
+
+        /* ----- layout system: asymmetric, handcrafted ----- */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* ----- navigation: unique floating divider ----- */
+        .nav-brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0 1rem;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        .logo span {
+            color: var(--accent-gold);
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            list-style: none;
+        }
+        .nav-links a:hover { color: var(--accent-umber); }
+
+        /* ----- footer: minimal with brand promise ----- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+        .footer-grid h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+        }
+        .footer-grid ul { list-style: none; }
+        .footer-grid li { margin-bottom: 0.6rem; color: var(--text-secondary); }
+        .footer-grid a:hover { color: var(--accent-umber); }
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ----- about page specific styles ----- */
+        .page-header {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .page-content h2 {
+            font-family: var(--font-serif);
+            margin-top: 2.5rem;
+            font-weight: 400;
+        }
+        .page-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .page-content ul, .page-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .page-content li { margin-bottom: 0.5rem; }
+        
+        .about-highlight {
+            background: var(--surface);
+            padding: 2rem 2.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            margin: 2.5rem 0;
+            border-left: 6px solid var(--accent-gold);
+        }
+        .about-highlight h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            color: var(--accent-umber);
+        }
+        .about-highlight p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        .team-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 1.5rem 0.3rem 1.5rem 0.3rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+        .team-card:nth-child(2) { border-radius: 0.3rem 1.5rem 0.3rem 1.5rem; }
+        .team-card .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--border-light);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-umber);
+        }
+        .team-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+        .team-card .role {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ---- responsive ---- */
+        @media (max-width: 900px) {
+            body { padding: 0 1rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { gap: 1.2rem; font-size: 0.7rem; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .page-header { font-size: 2.2rem; }
+            .about-highlight { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- navigation -->
+    <nav class="nav-brand">
+        <div class="logo">Prymora <span>Junebriar</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms Of Privacy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookies Policy</a></li> 
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="categories.html">Categories</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <h1 class="page-header">About · Prymora Junebriar</h1>
+    
+    <div class="page-content">
+        <p><strong>Prymora Junebriar</strong> is a premium journal for the discerning gardener, ecologist, and slow-living enthusiast. We believe that the most profound wisdom grows from the ground up — in the soil, the roots, and the quiet rhythms of the natural world.</p>
+
+        <div class="about-highlight">
+            <h3>Our mission</h3>
+            <p>To cultivate a deeper understanding of ecological gardening, regenerative horticulture, and the art of growing with intention. We bridge ancient wisdom with modern science, offering a space where knowledge is shared not as a commodity, but as a living, breathing practice.</p>
+        </div>
+
+        <h2>The origin story</h2>
+        <p>Founded in 2023 by a small collective of horticulturists, writers, and soil enthusiasts, Prymora Junebriar emerged from a shared frustration: the lack of a thoughtful, beautifully crafted publication that treated gardening as a serious intellectual and spiritual pursuit.</p>
+        <p>Our name pays homage to the <em>prymora</em> — the first light of dawn — and the <em>junebriar</em>, a wild rose that blooms at the height of summer. It reflects our commitment to both new beginnings and the enduring wildness of nature.</p>
+
+        <h2>What we believe</h2>
+        <ul>
+            <li><strong>Soil is sacred.</strong> Healthy soil is the foundation of all life, and we advocate for practices that restore and regenerate it.</li>
+            <li><strong>Knowledge should be shared.</strong> We are committed to open, accessible, and beautiful storytelling that empowers gardeners of all levels.</li>
+            <li><strong>Slow is sustainable.</strong> In a world of instant gratification, we champion the patient, observant, and deliberate approach to growing.</li>
+            <li><strong>Diversity is resilience.</strong> Both in the garden and in our editorial voice, we celebrate variety, heirloom varieties, and multiple perspectives.</li>
+        </ul>
+
+        <h2>The team</h2>
+        <p>Our small, passionate team brings together expertise in horticulture, ecology, design, and journalism. We are gardeners, writers, and dreamers who believe that the best stories are rooted in the earth.</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="avatar">🌿</div>
+                <h4>Elara Voss</h4>
+                <div class="role">Editor-in-Chief</div>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-secondary);">Soil ecologist &amp; storyteller.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">🌱</div>
+                <h4>Marcus Thorne</h4>
+                <div class="role">Horticulturalist</div>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-secondary);">Permaculture designer &amp; plant breeder.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">📖</div>
+                <h4>Iris Chen</h4>
+                <div class="role">Senior Writer</div>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-secondary);">Ethnobotanist &amp; garden historian.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">🎨</div>
+                <h4>Leo Hart</h4>
+                <div class="role">Creative Director</div>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-secondary);">Designer &amp; botanical illustrator.</p>
+            </div>
+        </div>
+
+        <h2>Editorial values</h2>
+        <p>Every piece we publish undergoes a rigorous editorial process. We prioritize:</p>
+        <ul>
+            <li><strong>Evidence-based insights</strong> — blending peer-reviewed science with experiential knowledge.</li>
+            <li><strong>Beautiful, unhurried prose</strong> — writing that rewards careful reading.</li>
+            <li><strong>Practical wisdom</strong> — actionable advice that respects the complexity of living systems.</li>
+            <li><strong>Inclusivity</strong> — a welcoming space for gardeners of all backgrounds and skill levels.</li>
+        </ul>
+
+        <div class="about-highlight" style="border-left-color: var(--accent-sage);">
+            <h3>Join the conversation</h3>
+            <p>We are always eager to hear from our readers. Whether you have a question, a story to share, or a suggestion for a future article, please <a href="contact.html" style="color: var(--accent-umber); text-decoration: underline;">reach out to us</a>. You can also subscribe to our seasonal newsletter for exclusive content and updates.</p>
+        </div>
+
+        <p style="margin-top: 2rem; text-align: right; color: var(--text-secondary); font-style: italic;">— Cultivate the uncommon, with love.</p>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div><h4>Prymora Junebriar</h4><p style="color: var(--text-secondary);">A premium journal for the discerning gardener. Cultivating knowledge since 2023.</p></div>
+            <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="categories.html">Categories</a></li><li><a href="#">Archive</a></li><li><a href="#">Resources</a></li></ul></div>
+            <div><h4>Info</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Authors</a></li><li><a href="#">FAQ</a></li></ul></div>
+            <div><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="cookies.html">Cookie Policy</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="#">Editorial Policy</a></li><li><a href="#">Sitemap</a></li></ul></div>
+        </div>
+        <div class="footer-copy">© 2026 Prymora Junebriar · outlook. All rights reserved. Handcrafted with intention.</div>
+    </footer>
+
+</div>
+</body>
+</html>
